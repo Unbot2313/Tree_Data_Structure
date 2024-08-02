@@ -78,8 +78,9 @@ func MostrarArbol(tree *models.TreeNode, indent string) {
 
 	//Pre orden
 	fmt.Println(indent + fmt.Sprintf("%d", tree.Valor))
-	MostrarArbol(tree.Izquierda, indent+"----")
-	MostrarArbol(tree.Derecha, indent+"----")
+	indent = indent + "  "
+	MostrarArbol(tree.Izquierda, indent+"---")
+	MostrarArbol(tree.Derecha, indent+"---")
 
 	// InOrden(tree.Izquierda, indent+"    ")  // Incrementa la indentación
 	// fmt.Println(indent + fmt.Sprintf("%d", tree.Valor))
