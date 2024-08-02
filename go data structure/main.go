@@ -20,13 +20,21 @@ func main() {
 
 	controllers.InitArbol(&RootNode)
 
-	controllers.GetOneElement(&RootNode, 8)
-
-	controllers.GetOneElement(&RootNode, 9)
+	controllers.MostrarArbol(&RootNode, "")
 
 	controllers.DeleteNode(&RootNode, 9)
 
-	controllers.GetOneElement(&RootNode, 9)
+	fmt.Println("------------------------------------")
+
+	controllers.MostrarArbol(&RootNode, "")
+
+	// controllers.GetOneElement(&RootNode, 8)
+
+	// controllers.GetOneElement(&RootNode, 9)
+
+	// controllers.DeleteNode(&RootNode, 9)
+
+	// controllers.GetOneElement(&RootNode, 9)
 
 	TiempoTotal := time.Since(StartTime)
 

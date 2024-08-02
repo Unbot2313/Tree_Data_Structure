@@ -70,6 +70,27 @@ func GetOneElement(ActualNode *models.TreeNode, Valor int) {
 
 }
 
+func MostrarArbol(tree *models.TreeNode, indent string) {
+
+	if tree == nil {
+		return
+	}
+
+	//Pre orden
+	fmt.Println(indent + fmt.Sprintf("%d", tree.Valor))
+	MostrarArbol(tree.Izquierda, indent+"----")
+	MostrarArbol(tree.Derecha, indent+"----")
+
+	// InOrden(tree.Izquierda, indent+"    ")  // Incrementa la indentación
+	// fmt.Println(indent + fmt.Sprintf("%d", tree.Valor))
+	// InOrden(tree.Derecha, indent+"    ")    // Incrementa la indentación
+
+	// PostOrden(tree.Izquierda, indent+"    ")  // Incrementa la indentación
+	// PostOrden(tree.Derecha, indent+"    ")    // Incrementa la indentación
+	// fmt.Println(indent + fmt.Sprintf("%d", tree.Valor))
+
+}
+
 func DeleteNode(TreeNode *models.TreeNode, Valor int) {
 	//lo que deberia hacer es, cuando este en el elemento que desee borrar, guarde su nodo anterior, y el futuro, y hacer que el anterior nodo tenga como puntero ya no el nodo
 	//que se desea borrar sino el hijo de el nodo a borrar, pero hay un problema son 2
