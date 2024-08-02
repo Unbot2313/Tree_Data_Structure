@@ -9,11 +9,9 @@ import (
 
 func InitArbol(RootNode *models.TreeNode) {
 
-	fmt.Println(&RootNode)
+	//esta cosa tiene q ser un puntero pq si no no se actualiza el valor original de main, sino
 
-	RootNode = &models.TreeNode{7, nil, nil}
-
-	fmt.Println(&RootNode)
+	*RootNode = models.TreeNode{7, nil, nil}
 
 	Valores := []int{1, 3, 5, 8, 9, 12, 0, 32, 6, 23, 7, 9}
 	for i := range Valores {
@@ -50,18 +48,26 @@ func InsertInArbol(RootNode *models.TreeNode, NewNodo *models.TreeNode) {
 	}
 }
 
-func GetOneElement(tree *models.TreeNode, Valor int) {
-	if tree == nil {
+func GetOneElement(ActualNode *models.TreeNode, Valor int) {
+	if ActualNode == nil {
 		fmt.Println("nil pointer referencessssssss")
-		panic(tree)
+		panic(ActualNode)
 	}
-	if tree.Valor == Valor {
-		fmt.Println(tree)
-	} else if Valor < tree.Valor {
-		GetOneElement(tree.Izquierda, Valor)
-	} else if Valor >= tree.Valor {
-		GetOneElement(tree.Derecha, Valor)
+	if ActualNode.Valor == Valor {
+		fmt.Println(ActualNode)
+	} else if Valor < ActualNode.Valor {
+		GetOneElement(ActualNode.Izquierda, Valor)
+	} else if Valor >= ActualNode.Valor {
+		GetOneElement(ActualNode.Derecha, Valor)
 	}
+
+	//si ya tiene todo puntero nulo es q no lo encontro
+	if ActualNode.Izquierda == nil && ActualNode.Derecha == nil {
+
+		fmt.Println("No se encontro el nodo")
+
+	}
+
 }
 
 func DeleteNode(TreeNode *models.TreeNode, Valor int) {

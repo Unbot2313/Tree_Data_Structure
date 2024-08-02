@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/Unbot2313/controllers"
 	"github.com/Unbot2313/models"
@@ -15,12 +16,19 @@ var RootNode models.TreeNode
 
 func main() {
 
-	fmt.Println(RootNode)
+	StartTime := time.Now()
 
 	controllers.InitArbol(&RootNode)
 
-	fmt.Println(RootNode)
-
 	controllers.GetOneElement(&RootNode, 8)
+
 	controllers.GetOneElement(&RootNode, 9)
+
+	controllers.DeleteNode(&RootNode, 9)
+
+	controllers.GetOneElement(&RootNode, 9)
+
+	TiempoTotal := time.Since(StartTime)
+
+	fmt.Println("Tiempo total: " + TiempoTotal.String())
 }
